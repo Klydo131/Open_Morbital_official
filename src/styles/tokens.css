@@ -1,0 +1,151 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* ══════════════════════════════════════════
+   OPEN MORBITAL — Design Tokens
+   Dark Mode (default) + Light Mode
+   Theme applied via: [data-theme="light"] on <html>
+══════════════════════════════════════════ */
+
+/* ── Dark Mode (default: Midnight Purple) ── */
+:root,
+[data-theme="dark"] {
+  /* Shell & backgrounds */
+  --sonata-bg:         #050b1f;
+  --sonata-bg-deep:    #020711;
+  --sonata-panel:      #0b1535;
+  --sonata-panel-2:    #101d46;
+  --sonata-panel-3:    #111f4a;
+  --sonata-glass:      rgba(11, 21, 53, 0.82);
+
+  /* Borders */
+  --sonata-border:        rgba(40, 66, 124, 0.85);
+  --sonata-border-bright: #6f82ff;
+
+  /* Text */
+  --sonata-text:   #f5f7ff;
+  --sonata-muted:  #9aa7d9;
+  --sonata-dim:    #6f7cb8;
+
+  /* Accents */
+  --sonata-cyan:       #20d7ff;
+  --sonata-blue:       #367cff;
+  --sonata-blue-deep:  #1239a8;
+  --sonata-violet:     #8b5cff;
+  --sonata-purple:     #a855f7;
+  --sonata-pink:       #ff4fd8;
+  --sonata-green:      #43e88f;
+  --sonata-amber:      #f59e0b;
+
+  /* CD assets */
+  --sonata-lcd-bg:      #020711;
+  --sonata-lcd-text:    #16dfff;
+  --sonata-cd-face-1:   #1a2560;
+  --sonata-cd-face-2:   #060f28;
+  --sonata-cd-rim-a:    #1a2248;
+  --sonata-cd-rim-b:    #4a5888;
+  --sonata-cd-text:     #20d7ff;
+  --sonata-cd-accent:   #20d7ff;
+  --sonata-cd-hub-1:    #2a3868;
+  --sonata-cd-hub-2:    #101828;
+
+  /* Glows */
+  --sonata-glow-blue:   0 0 30px rgba(54, 124, 255, 0.45);
+  --sonata-glow-cyan:   0 0 24px rgba(32, 215, 255, 0.38);
+  --sonata-glow-purple: 0 0 28px rgba(139, 92, 255, 0.4);
+  --sonata-glow-pink:   0 0 20px rgba(255, 79, 216, 0.35);
+  --sonata-word-glow:   0 0 7px rgba(32, 215, 255, 0.42),
+                       0 1px 0 rgba(0, 0, 0, 0.72);
+
+  /* Shadows */
+  --sonata-shadow-device: 0 30px 90px rgba(0, 0, 0, 0.65);
+  --sonata-shadow-panel:  0 4px 24px rgba(0, 0, 0, 0.5);
+  --sonata-inset:         inset 0 1px 0 rgba(255, 255, 255, 0.07),
+                         inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+  --sonata-inset-deep:    inset 0 2px 12px rgba(0, 0, 0, 0.6),
+                         inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+
+  /* Hardware surface texture */
+  --sonata-bevel-top:    rgba(255, 255, 255, 0.09);
+  --sonata-bevel-bot:    rgba(0, 0, 0, 0.45);
+}
+
+/* ── Light Mode (Silver Lavender) ── */
+[data-theme="light"] {
+  /* Shell & backgrounds */
+  --sonata-bg:         #dce4ff;
+  --sonata-bg-deep:    #d4ddfa;
+  --sonata-panel:      #c8d2f3;
+  --sonata-panel-2:    #aebbe2;
+  --sonata-panel-3:    #eef3ff;
+  --sonata-glass:      rgba(200, 210, 243, 0.88);
+
+  /* Borders */
+  --sonata-border:        rgba(100, 120, 180, 0.5);
+  --sonata-border-bright: #0077a8;
+
+  /* Text */
+  --sonata-text:   #17234d;
+  --sonata-muted:  #6572a3;
+  --sonata-dim:    #8791c2;
+
+  /* Accents — darkened for readability on light lavender backgrounds */
+  --sonata-cyan:       #0077a8;
+  --sonata-blue:       #1a4fd6;
+  --sonata-blue-deep:  #0f35a0;
+  --sonata-violet:     #5e18d8;
+  --sonata-purple:     #7820d8;
+  --sonata-pink:       #b81068;
+  --sonata-green:      #047857;
+  --sonata-amber:      #b45309;
+
+  /* CD assets */
+  --sonata-lcd-bg:      #071226;
+  --sonata-lcd-text:    #1ee7ff;
+  --sonata-cd-face-1:   #f0f4ff;
+  --sonata-cd-face-2:   #c8d4f0;
+  --sonata-cd-rim-a:    #8090c0;
+  --sonata-cd-rim-b:    #e8f0ff;
+  --sonata-cd-text:     #1a2a6c;
+  --sonata-cd-accent:   #3060c0;
+  --sonata-cd-hub-1:    #a0b0d8;
+  --sonata-cd-hub-2:    #6878b0;
+
+  /* Glows (toned for light mode — shadow-based not bloom-based) */
+  --sonata-glow-blue:   0 0 14px rgba(26, 79, 214, 0.22);
+  --sonata-glow-cyan:   0 0 12px rgba(0, 119, 168, 0.22);
+  --sonata-glow-purple: 0 0 14px rgba(94, 24, 216, 0.22);
+  --sonata-glow-pink:   0 0 12px rgba(184, 16, 104, 0.22);
+  --sonata-word-glow:   0 1px 0 rgba(255, 255, 255, 0.72),
+                       0 0 1px rgba(23, 35, 77, 0.42);
+
+  /* Shadows */
+  --sonata-shadow-device: 0 24px 60px rgba(20, 30, 70, 0.35);
+  --sonata-shadow-panel:  0 4px 18px rgba(42, 63, 120, 0.2);
+  --sonata-inset:         inset 0 1px 0 rgba(255, 255, 255, 0.65),
+                         inset 0 -1px 0 rgba(42, 63, 120, 0.18);
+  --sonata-inset-deep:    inset 0 2px 10px rgba(42, 63, 120, 0.25),
+                         inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+
+  /* Hardware surface texture */
+  --sonata-bevel-top:    rgba(255, 255, 255, 0.7);
+  --sonata-bevel-bot:    rgba(42, 63, 120, 0.18);
+}
+
+/* ── Shared Layout / Non-theme tokens ── */
+:root {
+  --sonata-radius-sm: 8px;
+  --sonata-radius-md: 14px;
+  --sonata-radius-lg: 22px;
+  --sonata-radius-xl: 32px;
+
+  --sidebar-width:          176px;
+  --queue-width:            216px;
+  --bottom-console-height:  52px;
+  --top-bar-height:         44px;
+
+  --font-ui:   'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --transition-fast:   120ms ease;
+  --transition-normal: 220ms ease;
+  --transition-slow:   400ms ease;
+}
