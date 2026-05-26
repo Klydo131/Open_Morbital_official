@@ -64,19 +64,6 @@ path is to remove `@ffmpeg/*` entirely (which means losing in-browser
 audio transcoding, used by the local transcode feature when a file
 codec is not natively supported by the browser).
 
-## License history of this repository
-
-Earlier revisions of this repository were released under the MIT License.
-The copyright holder of those earlier revisions exercised the MIT
-sublicensing right to relicense the combined work under AGPL-3.0,
-effective 2026-05-25. The original MIT copyright notice is preserved
-verbatim inside `LICENSE` in accordance with the MIT notice-retention
-requirement.
-
-If you obtained an earlier MIT-licensed copy of this repository before
-2026-05-25, your rights to that snapshot under MIT are unaffected.
-Subsequent revisions are AGPL-3.0 only.
-
 ## Reporting a license concern
 
 If you believe Open Morbital is mishandling an upstream license, please
