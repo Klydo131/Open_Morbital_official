@@ -32,3 +32,7 @@ lerna-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Temp files used by tooling — never commit
+.commit-msg.tmp
+*.tmp.md
