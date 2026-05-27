@@ -20,6 +20,39 @@ Open Morbital is a local-first retro-wave music player that runs in the browser.
 - Workspace documents are limited to known document/archive extensions and files up to 100 MB.
 - Saved media files are limited to supported media types and files up to 500 MB.
 
+### What Origins We Contact
+
+Open Morbital is a static frontend. Outbound network traffic is limited to:
+
+| Origin | When | Why |
+|---|---|---|
+| `fonts.googleapis.com`, `fonts.gstatic.com` | App boot | Inter + JetBrains Mono CSS/woff2 |
+| `www.youtube-nocookie.com`, `www.youtube.com` | Only when you load a YouTube track | Iframe player + IFrame API |
+| `i.ytimg.com` | Only when a YouTube track is loaded | Album-art thumbnail |
+
+Any other outbound request is a bug — please report it via [SECURITY.md](./SECURITY.md). The Content Security Policy in `index.html` enforces this whitelist; the browser will block anything else.
+
+## Keyboard Shortcuts
+
+Open Morbital is keyboard-first. Press `?` anywhere to open the help overlay.
+
+| Keys | Action |
+|---|---|
+| Space | Play / Pause |
+| → / ← | Next / Previous track |
+| Shift + → / ← | Seek ±10 s |
+| ↑ / ↓ | Volume ±5% |
+| M / S / R | Mute / Shuffle / Repeat |
+| ? / Esc | Help / Close overlay |
+
+Inputs (search, URL bar) are ignored — typing will not trigger shortcuts.
+
+## Identity
+
+The visual identity is **Paper Deck** — paper + walnut + signal-red, designed to feel like a handmade paper-and-walnut hi-fi rather than a spaceship. Dark mode = ink background + paper text + signal accent. Light mode = paper background + walnut text + signal accent. No neon, no glass, no spinning disc by default.
+
+CSS tokens live in [`src/styles/tokens.css`](./src/styles/tokens.css). The seven identity primitives are `--mb-paper`, `--mb-paper-deep`, `--mb-walnut`, `--mb-walnut-soft`, `--mb-rule`, `--mb-signal`, `--mb-ink`. The `--sonata-*` tokens used by components are aliases over those primitives.
+
 ## Requirements
 
 - Node.js 20 or newer.

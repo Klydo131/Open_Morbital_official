@@ -97,7 +97,7 @@ export const ALL_UPDATES: UpdateEntry[] = [
     id: 'u-20260505-theme',
     date: '2026-05-05',
     title: 'Dark & Light Themes',
-    body: 'Choose between Midnight Purple (dark) and Silver Lavender (light). Your preference is saved between sessions.',
+    body: 'Choose between dark and light themes from the top bar. Your preference is saved between sessions.',
     tag: 'improved',
   },
   {
