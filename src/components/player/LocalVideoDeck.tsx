@@ -3,10 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { clearPosition, usePlayerStore, type MorbitalTrack } from '../../store/playerStore';
 import { setGlobalAudio } from '../../core/audio/audioRef';
 
+type WakeLockSentinel = { release: () => Promise<void> };
+
 type Props = { track: MorbitalTrack };
 
 export function LocalVideoDeck({ track }: Props) {
   const videoRef   = useRef<HTMLVideoElement>(null);
+  const wakeLockRef = useRef<WakeLockSentinel | null>(null);
   // Prevents the store→video→onPlay/onPause→store feedback loop
   const syncingRef = useRef(false);
 
@@ -85,6 +88,45 @@ export function LocalVideoDeck({ track }: Props) {
     const video = videoRef.current;
     if (video) video.loop = isRepeatOn;
   }, [isRepeatOn]);
+
+  // Keep the screen on while video is playing. Silently no-ops where the
+  // Wake Lock API is not supported or the request is denied.
+  useEffect(() => {
+    let cancelled = false;
+
+    async function acquire() {
+      const nav = navigator as Navigator & {
+        wakeLock?: { request: (type: 'screen') => Promise<WakeLockSentinel> };
+      };
+      if (!nav.wakeLock || wakeLockRef.current) return;
+      try {
+        const sentinel = await nav.wakeLock.request('screen');
+        if (cancelled) {
+          void sentinel.release();
+          return;
+        }
+        wakeLockRef.current = sentinel;
+      } catch {
+        // Wake Lock can be denied on background tabs; safe to swallow.
+      }
+    }
+
+    async function release() {
+      const sentinel = wakeLockRef.current;
+      wakeLockRef.current = null;
+      if (sentinel) {
+        try { await sentinel.release(); } catch { /* noop */ }
+      }
+    }
+
+    if (isPlaying) void acquire();
+    else void release();
+
+    return () => {
+      cancelled = true;
+      void release();
+    };
+  }, [isPlaying]);
 
   function detectShape(video: HTMLVideoElement) {
     const { videoWidth: w, videoHeight: h } = video;

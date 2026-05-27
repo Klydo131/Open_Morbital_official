@@ -42,10 +42,10 @@ export function SettingsRoute() {
         </div>
         <div className="sonata-settings-row">
           <div>
-            <div className="sonata-settings-row__label">Supabase sync</div>
-            <div className="sonata-settings-row__sub">Reserved for a future version.</div>
+            <div className="sonata-settings-row__label">Outbound network</div>
+            <div className="sonata-settings-row__sub">Only YouTube iframes you load and the Google Fonts CSS at startup.</div>
           </div>
-          <span style={{ color: 'var(--sonata-dim)', fontSize: 12 }}>v1.5</span>
+          <span style={{ color: 'var(--sonata-green)', fontSize: 12 }}>Locked</span>
         </div>
       </div>
 

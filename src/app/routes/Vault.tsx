@@ -121,8 +121,8 @@ function MusicTab() {
   function playAll() {
     if (!displayTracks.length) return;
     const morbitals = displayTracks.map(vaultTrackToMorbital);
-    addTracks(orbits);
-    playTrackNow(orbits[0]);
+    addTracks(morbitals);
+    playTrackNow(morbitals[0]);
   }
 
   async function handleCreatePlaylist() {

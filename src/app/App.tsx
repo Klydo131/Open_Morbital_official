@@ -16,6 +16,8 @@ import { useMediaSession } from '../core/audio/useMediaSession';
 import { morbitalDb } from '../core/storage/db';
 import { vaultDb } from '../core/storage/vaultDb';
 import type { MorbitalTrack } from '../store/playerStore';
+import { KeyboardHelp } from '../components/shared/KeyboardHelp';
+import { useGlobalShortcuts } from '../core/keyboard/useGlobalShortcuts';
 
 const MOBILE_BP = 768;
 
@@ -105,7 +107,13 @@ function DesktopApp() {
 
 function MorbitalApp() {
   const isMobile = useIsMobile();
-  return isMobile ? <MobileShell /> : <DesktopApp />;
+  const { helpOpen, setHelpOpen } = useGlobalShortcuts();
+  return (
+    <>
+      {isMobile ? <MobileShell /> : <DesktopApp />}
+      <KeyboardHelp open={helpOpen} onClose={() => setHelpOpen(false)} />
+    </>
+  );
 }
 
 export default function App() {

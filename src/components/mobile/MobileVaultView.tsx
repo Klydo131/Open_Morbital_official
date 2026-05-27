@@ -67,8 +67,8 @@ export function MobileVaultView() {
   function playAll() {
     if (!vaultTracks.length) return;
     const morbitals = vaultTracks.map(vaultTrackToMorbital);
-    addTracks(orbits);
-    playTrackNow(orbits[0]);
+    addTracks(morbitals);
+    playTrackNow(morbitals[0]);
   }
 
   function openDoc(file: { blob: Blob; name: string }) {

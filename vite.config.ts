@@ -15,8 +15,8 @@ export default defineConfig({
         display: 'standalone',
         start_url: '/',
         scope: '/',
-        theme_color: '#0e0a06',
-        background_color: '#080604',
+        theme_color: '#14110d',
+        background_color: '#0a0807',
         icons: [
           {
             src: '/icons/morbital-icon.svg',

@@ -203,15 +203,23 @@ export function YoutubeEmbedPlayer({ track, className, height = 220 }: Props) {
     };
   }, [playNext, setCurrentTime, setDuration, setIsPlaying, track]);
 
+  // Force youtube-nocookie.com so YouTube does not set tracking cookies
+  // before the user explicitly interacts with the embedded player.
+  const hardenedSrc = (track.sourceUrl ?? '').replace(
+    /^https?:\/\/(www\.)?youtube\.com\/embed\//i,
+    'https://www.youtube-nocookie.com/embed/',
+  );
+
   return (
     <iframe
       ref={iframeRef}
       className={className}
-      key={track.sourceUrl}
-      src={track.sourceUrl}
+      key={hardenedSrc}
+      src={hardenedSrc}
       title={track.title}
       allow="autoplay; encrypted-media; picture-in-picture"
       sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+      referrerPolicy="no-referrer"
       allowFullScreen
       style={{
         width: '100%',

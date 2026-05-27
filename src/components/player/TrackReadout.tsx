@@ -113,9 +113,7 @@ export function TrackReadout() {
     : null;
 
   const row2Parts = [artist, album].filter(Boolean).join(' - ') || 'UNKNOWN ARTIST';
-  const displayTitle = currentTrack.sourceType === 'youtube'
-    ? currentTrack.title
-    : currentTrack.title.toUpperCase();
+  const displayTitle = currentTrack.title;
 
   return (
     <div className="sonata-track-lcd">

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { Smile } from 'lucide-react';
-import { CDPlayer } from './CDPlayer';
+import { NowPlayingHero } from './NowPlayingHero';
 import { TrackReadout } from './TrackReadout';
 import { ProgressBar } from './ProgressBar';
 import { TransportControls } from './TransportControls';
@@ -16,7 +15,7 @@ export function PlaybackHub() {
   const hasYoutubeProgress = currentTrack?.sourceType === 'youtube';
   const isLocalVideo = currentTrack?.sourceType === 'local' && currentTrack.mediaKind === 'video';
 
-  const deckVariant = isLocalVideo ? 'video' : isEmbedTrack ? 'embed' : 'cd';
+  const deckVariant = isLocalVideo ? 'video' : isEmbedTrack ? 'embed' : 'hero';
 
   return (
     <div className={`sonata-playback-hub sonata-playback-hub--${deckVariant}`}>
@@ -26,17 +25,11 @@ export function PlaybackHub() {
         ) : isLocalVideo && currentTrack ? (
           <LocalVideoDeck track={currentTrack} />
         ) : (
-          <CDPlayer size={220} />
+          <NowPlayingHero />
         )}
       </div>
 
       <div className="sonata-playback-controls">
-        <div className="sonata-controls-topbar">
-          <button className="sonata-mood-btn">
-            <Smile size={11} />
-            Mood
-          </button>
-        </div>
         <TrackReadout />
         {(!isEmbedTrack || hasYoutubeProgress) && <ProgressBar onSeek={audioSeekTo} />}
         <TransportControls onPlayPause={() => void audioTogglePlayback()} />
